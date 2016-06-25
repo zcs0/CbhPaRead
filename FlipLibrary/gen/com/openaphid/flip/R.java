@@ -38,17 +38,17 @@ public final class R {
         public static int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static int ARGB_4444=0x7f030003;
-        public static int ARGB_8888=0x7f030002;
-        public static int RGB_565=0x7f030004;
-        public static int horizontal=0x7f030001;
-        public static int vertical=0x7f030000;
+        public static int ARGB_4444=0x7f050002;
+        public static int ARGB_8888=0x7f050003;
+        public static int RGB_565=0x7f050004;
+        public static int horizontal=0x7f050000;
+        public static int vertical=0x7f050001;
     }
     public static final class string {
-        public static int app_name=0x7f040000;
+        public static int app_name=0x7f030000;
     }
     public static final class style {
-        public static int AppTheme=0x7f050000;
+        public static int AppTheme=0x7f040000;
     }
     public static final class styleable {
         /** Attributes that can be used with a FlipViewController.
@@ -83,7 +83,7 @@ public final class R {
 </table>
           @attr name com.openaphid.flip:animationBitmapFormat
         */
-        public static final int FlipViewController_animationBitmapFormat = 1;
+        public static int FlipViewController_animationBitmapFormat = 1;
         /**
           <p>This symbol is the offset where the {@link com.openaphid.flip.R.attr#orientation}
           attribute's value can be found in the {@link #FlipViewController} array.
@@ -100,6 +100,6 @@ public final class R {
 </table>
           @attr name com.openaphid.flip:orientation
         */
-        public static final int FlipViewController_orientation = 0;
+        public static int FlipViewController_orientation = 0;
     };
 }

@@ -1,0 +1,16 @@
+﻿*/gen
+*/assets
+*/bin
+*.properties
+*.R
+gradlew
+.project
+build.gradle
+gradlew.bat
+project.properties
+settings.gradle
+.classpath
+*.iml
+*.gradle
+*.class
+FlipLibrary/bin/*
