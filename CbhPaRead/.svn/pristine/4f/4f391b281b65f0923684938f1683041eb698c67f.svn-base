@@ -1,0 +1,20 @@
+package com.anjoyo.aimo;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.WebView;
+
+public class YingyongActivity extends Activity{
+	WebView webview;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.yingyong);
+		webview=(WebView)findViewById(R.id.webview);
+		webview.loadUrl("http://d.91.com/");
+	}
+	public void onBack(View v){
+		finish();
+	}
+}

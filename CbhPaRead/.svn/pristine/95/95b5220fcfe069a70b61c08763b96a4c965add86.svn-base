@@ -1,0 +1,83 @@
+package anjoyo.zcx.adapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.anjoyo.aimo.R;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class MyAdapter extends BaseAdapter {
+	Context mycContext;
+	ArrayList<HashMap<String, Object>> mydata;
+
+	public MyAdapter(Context con, ArrayList<HashMap<String, Object>> data) {
+		// TODO Auto-generated constructor stub
+		this.mycContext = con;
+		this.mydata = data;
+
+	}
+	public int getCount() {
+		// TODO Auto-generated method stub
+		return mydata.size();
+	}
+
+	@Override
+	public Object getItem(int position) {
+		// TODO Auto-generated method stub
+		return mydata.get(position);
+	}
+
+	@Override
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return position;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		MyHolder myHolder = null;
+//		if (convertView == null) {
+//			myHolder = new MyHolder();
+//			convertView = LayoutInflater.from(mycContext).inflate(
+//					R.layout.item_menu, null);
+//			convertView.setTag(myHolder);
+//			myHolder.imageView = (ImageView) convertView
+//					.findViewById(R.id.item_image);
+//			myHolder.textView=(TextView)convertView.findViewById(R.id.item_textView);
+//		} else {
+//			myHolder = (MyHolder) convertView.getTag();
+//		}
+		if (mydata.size()>position) {
+			myHolder=new MyHolder();
+			convertView = LayoutInflater.from(mycContext).inflate(
+					R.layout.item_menu, null);
+			convertView.setTag(myHolder);
+			myHolder.imageView = (ImageView) convertView
+					.findViewById(R.id.item_image);
+			myHolder.textView=(TextView)convertView.findViewById(R.id.item_textView);
+			
+		}else {
+			myHolder=(MyHolder)convertView.getTag();
+		}
+		myHolder.imageView.setBackgroundResource((Integer) mydata.get(
+				position).get("itemImage"));
+//		myHolder.textView.setText("‘›Œﬁ ÈºÆ");
+//		myHolder.imageView.setImageDrawable(getResources().getDrawable((Integer) mydata.get(position).get("itemImage")));
+	
+		myHolder.textView.setText(mydata.get(position).get("bookName").toString());
+		return convertView;
+	}
+	private final class MyHolder {
+		ImageView imageView;
+		TextView textView;
+	}
+
+}

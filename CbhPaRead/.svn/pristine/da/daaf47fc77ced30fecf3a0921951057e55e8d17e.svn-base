@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.anjoyo.aimo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="8" />
+    <!-- wifi传输权限 -->
+     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" >
+ 
+   </uses-permission>
+ 
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+ 
+   </uses-permission>
+ 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+ 
+    </uses-permission>
+ 
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+ 
+    </uses-permission>
+ 
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS" >
+ 
+    </uses-permission>
+ 
+   <uses-permission android:name="android.permission.INTERNET" >
+ 
+    </uses-permission>
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar" >
+        <activity
+            android:label="@string/app_name"
+            android:name=".WelcomeActivity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".CbhPaReadActivity" ></activity>
+        <activity android:name=".MyWenJianLiulanActivity" ></activity>
+        <activity android:name=".LoginActivity" ></activity>
+        <activity android:name=".ReadBook" ></activity>
+        <activity android:name=".AboutActivity" ></activity>
+        <activity android:name=".ShezhiActivity" > </activity>
+        <activity android:name=".JiBenActivity" ></activity>
+        <activity android:name=".PeiSeActivity" ></activity>
+        <activity android:name=".QiTeActivity" ></activity>
+        <activity android:name=".ShangCiActivity" ></activity>
+        <activity android:name=".YingyongActivity"></activity>
+        <activity android:name=".ZiXingActivity" ></activity>
+         <activity android:name=".ColorPickerDialog" ></activity>
+        
+        <activity android:name="com.anjoyo.wangluo.ShuChengActivity" ></activity>
+        <activity android:name="com.anjoyo.wangluo.ManhuaActivity" ></activity>
+        <activity android:name="com.anjoyo.wangluo.ShouyeActivity" ></activity>
+        <activity android:name="com.anjoyo.wangluo.TushuActivity" ></activity>
+        <activity android:name="com.anjoyo.wangluo.XiaoshuoActivity" ></activity>
+        <activity android:name="com.anjoyo.wangluo.ZazhiActivity" ></activity>
+        
+    </application>
+
+</manifest>

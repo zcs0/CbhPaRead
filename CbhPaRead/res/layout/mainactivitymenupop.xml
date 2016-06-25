@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/brown_shelf_menu"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <!-- 主页面  点击熊猫弹出的popwindow -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical" >
+
+                <RadioButton
+                    android:onClick="btnPastBookList"
+                    style="@style/mainPopRadiobtn"
+                    android:drawableTop="@drawable/shelf_menu_lastread_unsel"
+                    android:text="@string/lishi" />
+
+                <RadioButton
+                    style="@style/mainPopRadiobtn"
+                    android:drawableTop="@drawable/shelf_menu_shakeshare_unsel"
+                    android:text="@string/yaoyao" 
+                    android:onClick="YaoOnClick"/>
+
+                <RadioButton
+                    style="@style/mainPopRadiobtn"
+                    android:drawableTop="@drawable/shelf_menu_bookmark_unsel"
+                    android:text="@string/chajian" />
+
+                <RadioButton
+                    style="@style/mainPopRadiobtn"
+                    android:drawableTop="@drawable/shelf_menu_apps_unsel"
+                    android:text="@string/yingyong"
+                    android:onClick="YYong" />
+
+                <RadioButton
+                    style="@style/mainPopRadiobtn"
+                    android:drawableTop="@drawable/shelf_menu_about_unsel"
+                    android:text="@string/guanyu" 
+                    android:id="@+id/about"
+                    android:onClick="OnAbout">
+                </RadioButton>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical" >
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="center_vertical" >
+
+                <RadioButton
+                    android:onClick="btnOpenSD"
+                    style="@style/mainPopRadiobtn"
+                    android:drawableTop="@drawable/shelf_menu_file_unsel"
+                    android:text="@string/bendi" />
+
+                <RadioButton
+                    style="@style/mainPopRadiobtn"
+                    android:drawableTop="@drawable/shelf_menu_wifitransfer_unsel"
+                    android:text="@string/wifi"
+                    android:id="@+id/WiFiOn"
+                    android:onClick="WifiCs" />
+
+                <RadioButton
+                    style="@style/mainPopRadiobtn"
+                    android:drawableTop="@drawable/shelf_menu_favorites_unsel"
+                    android:text="@string/shoucang" />
+
+                <RadioButton
+                    style="@style/mainPopRadiobtn"
+                    android:drawableTop="@drawable/shelf_menu_setting_unsel"
+                    android:text="@string/shezhi" 
+                    android:onClick="settings"
+                    />
+
+                <RadioButton
+                    style="@style/mainPopRadiobtn"
+                    android:drawableTop="@drawable/shelf_menu_exit_unsel"
+                    android:text="　退 出　" 
+                    android:onClick="exitwindow"/>
+            </RadioGroup>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+       android:onClick="MiongMaoXiaoShi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/line"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/brown_shelf_menu_hide" />
+
+</RelativeLayout>

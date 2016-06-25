@@ -1,0 +1,28 @@
+package com.anjoyo.aimo;
+
+
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.CheckBox;
+
+
+
+
+
+public class PeiSeActivity extends Activity{
+   CheckBox checkbox;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.peise);
+		
+	}
+	
+	
+		
+		
+	}
+
+

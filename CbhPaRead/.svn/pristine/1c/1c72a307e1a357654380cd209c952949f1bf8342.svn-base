@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/brown_shelf_bottom_bar"
+    android:orientation="horizontal" >
+
+    <!-- 手 动 输 入 搜 索    pop布局 -->
+    
+    <EditText 
+        android:id="@+id/SouSuoEditText"
+        android:singleLine="true"
+        android:layout_weight="1"
+        android:hint="全部或部分文件名格式名"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" 
+        />
+
+    <Button
+        android:background="@drawable/contentsearch"
+        android:onClick="ShouSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:background="@drawable/brown_shelf_delete_sel"
+        android:onClick="QuXiao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    
+</LinearLayout>

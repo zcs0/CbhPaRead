@@ -1,0 +1,311 @@
+package com.anjoyo.wangluo;
+
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
+
+import com.anjoyo.aimo.R;
+import com.anjoyo.aimo.ReadBook;
+import com.anjoyo.down.DownLoadTxt;
+import com.anjoyo.down.DownLoadTxt.ServiceBind;
+import com.anjoyo.down.FileDown;
+import com.anjoyo.finalltxt.Finaltxt;
+import com.anjoyo.saxtofile.SaxXML;
+
+import android.R.integer;
+import android.accounts.Account;
+import android.accounts.OnAccountsUpdateListener;
+import android.app.Activity;
+import android.app.AlertDialog.Builder;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class ShouyeActivity extends Activity {
+	GridView gridView;
+	public static ArrayList<HashMap<String, String>> arrayList = new ArrayList<HashMap<String, String>>();
+	ProgressDialog pd;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.wlshouye);
+		gridView = (GridView) findViewById(R.id.lv1);
+
+		// pd=ProgressDialog.show(ShouyeActivity.this, "正在加载书籍,请稍等...",
+		// null,true);
+//自定义进度条
+		pd = new ProgressDialog(this);
+		pd.show();
+		pd.setContentView(R.layout.myprogressdialog);
+		new Thread(run).start();
+		// 下载书籍
+		loadtxt();
+		//点击读书
+		gridView.setOnItemClickListener(new GridView.OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent();
+				intent.setClass(ShouyeActivity.this, InterRead.class);
+				intent.putExtra("txtName1",
+						arrayList.get(arg2).get(Finaltxt.TXTNAME));
+				// System.out.println("eeeeeeeeeeeeeee"+arrayList.get(arg2).get(Finaltxt.TXTNAME));
+				startActivity(intent);
+				// InterRead interRead=new InterRead();
+				// interRead.opennerbook(Finaltxt.TXTPA+arrayList.get(arg2).get(Finaltxt.TXTNAME));
+			}
+		});
+
+		// FileDown f = new FileDown();
+		// String result = f
+		// .DownLoad(Finaltxt.TXTPATH);
+		// SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+		// try {
+		// XMLReader reader = saxParserFactory.newSAXParser().getXMLReader();
+		// SaxXML sXml = new SaxXML();
+		// reader.setContentHandler(sXml);
+		// reader.parse(new InputSource(new StringReader(result)));
+		// arrayList = sXml.getArrayList();
+		// } catch (Exception e) {
+		// // TODO: handle exception
+		// e.printStackTrace();
+		// }
+
+		// SimpleAdapter sim = new SimpleAdapter(JiexiActivity.this, arrayList,
+		// android.R.layout.simple_list_item_2, new String[] { "txtName",
+		// "txtAuthor" }, new int[] { android.R.id.text1,
+		// android.R.id.text2 });
+
+		// listView.setAdapter(ma);
+
+	}
+
+	// 长按下载书籍
+	private void loadtxt() {
+		Intent intent = new Intent(ShouyeActivity.this, DownLoadTxt.class);
+		ShouyeActivity.this.getApplicationContext().bindService(intent,
+				serviceConn, Context.BIND_AUTO_CREATE);
+		gridView.setOnItemLongClickListener(new GridView.OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+					final int arg2, long arg3) {
+
+				// System.out.println("ddd"+arg2);
+
+				Builder bl = new AlertDialog.Builder(ShouyeActivity.this);
+				bl.setTitle("温馨提示");
+				bl.setMessage("是否要下载歌曲\""
+						+ arrayList.get(arg2).get(Finaltxt.TXTNAME) + "\"?");
+				bl.setPositiveButton("YES",
+						new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								// System.out.println("ccc"+tService);
+								// TODO Auto-generated method stub
+								tService.xiazai(arrayList.get(arg2));
+							}
+						});
+				bl.setNeutralButton("NO",
+						new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								// TODO Auto-generated method stub
+
+							}
+						});
+				bl.show();
+				return true;
+			}
+		});
+
+	}
+
+	private DownLoadTxt tService;
+	ServiceConnection serviceConn = new ServiceConnection() {
+
+		public void onServiceDisconnected(ComponentName name) {
+			// System.out.println("111");
+		}
+
+		public void onServiceConnected(ComponentName name, IBinder service) {
+
+			// System.out.println("cccccccccccccccc");
+			ServiceBind sBind = (ServiceBind) service;
+			tService = sBind.GetService();
+			// System.out.println("111"+tService);
+		}
+	};
+
+	Handler handler = new Handler() {
+		public void handleMessage(Message msg) {
+
+			MyAdapter ma = new MyAdapter(ShouyeActivity.this, arrayList);
+			gridView.setAdapter(ma);
+
+			pd.dismiss();
+		}
+	};
+	//解析网络书籍（耗时操作）
+	Runnable run = new Runnable() {
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			FileDown f = new FileDown();
+			String result = f.DownLoad(Finaltxt.TXTPATH);
+			SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+			try {
+				Thread.sleep(1000);
+				XMLReader reader = saxParserFactory.newSAXParser()
+						.getXMLReader();
+				SaxXML sXml = new SaxXML();
+				reader.setContentHandler(sXml);
+				reader.parse(new InputSource(new StringReader(result)));
+				arrayList = sXml.getArrayList();
+				Message msg = handler.obtainMessage();
+				msg.sendToTarget();
+
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+
+		}
+	};
+//书籍加载显示
+	class MyAdapter extends BaseAdapter {
+		Context context;
+		ArrayList<HashMap<String, String>> arrList;
+
+		// HashMap<String, SoftReference<Drawable>> bitMap;
+		public MyAdapter(Context con,
+				ArrayList<HashMap<String, String>> arrayList) {
+			// TODO Auto-generated constructor stub]
+			this.context = con;
+			this.arrList = arrayList;
+			// bitMap = new HashMap<String, SoftReference<Drawable>>();
+		}
+
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return arrList.size();
+		}
+
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return arrList.get(position);
+		}
+
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			MyHolder mh = null;
+
+			if (convertView == null) {
+				mh = new MyHolder();
+				convertView = LayoutInflater.from(context).inflate(
+						R.layout.linebook, null);
+				convertView.setTag(mh);
+				mh.image = (ImageView) convertView.findViewById(R.id.image);
+				mh.tView = (TextView) convertView.findViewById(R.id.author);
+			} else {
+				mh = (MyHolder) convertView.getTag();
+			}
+
+			mh.tView.setText((CharSequence) arrList.get(position).get(
+					Finaltxt.TXTAUTHOR));
+
+			// 一次性加载
+			FileDown file = new FileDown();
+			String path = Finaltxt.TXTPA
+					+ SaxXML.xmllist.get(position).get(Finaltxt.TXTIMAGE);
+			Bitmap bit = file.GetImgToIntent(path);
+			mh.image.setImageBitmap(bit);
+
+			// 异步加载
+			// String
+			// path=Finaltxt.TXTPA+JiexiActivity.arrayList.get(position).get(Finaltxt.TXTIMAGE);
+			// if (bitMap.containsKey(path)) {
+			// SoftReference<Drawable> sf=bitMap.get(path);
+			// mh.image.setImageDrawable(sf.get());
+			// }else {
+			// mh.task=new DownloadTask(mh.image);
+			// mh.task.execute(path);
+			// }
+			return convertView;
+		}
+
+		private final class MyHolder {
+			ImageView image;
+			TextView tView;
+			// DownloadTask task;
+		}
+		// class DownloadTask extends AsyncTask<String, Integer, Drawable> {
+		// Drawable b;
+		// ImageView iView;
+		// String payString;
+		//
+		// DownloadTask(ImageView v) {
+		// this.iView = v;
+		// }
+		//
+		// protected Drawable doInBackground(String... params) {
+		// // TODO Auto-generated method stub
+		// FileDown f = new FileDown();
+		// b = f.GetImgToIntent(params[0]);
+		// payString = params[0];
+		// return b;
+		// }
+		//
+		// protected void onPreExecute() {
+		// super.onPreExecute();
+		// }
+		//
+		// protected void onPostExecute(Drawable result) {
+		// if (result != null) {
+		// iView.setImageDrawable(b);
+		// bitMap.put(payString, new SoftReference<Drawable>(b));
+		// } else {
+		// System.out.println("a");
+		// }
+		// }
+		//
+		// }
+	}
+
+}

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#decbad">
+    <TextView 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/btn_color_picker"
+         android:layout_marginLeft="20sp"
+         android:textColor="@android:color/black"
+         android:textSize="22dp"
+         android:id="@+id/tv_text"
+       
+        />
+      <TextView 
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/btn_color_picker2"
+         android:textColor="#000"
+         android:textSize="22dp"
+         android:id="@+id/tv_text2"
+         android:layout_marginLeft="20sp"
+        />
+
+ <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered"
+                    android:id="@+id/jbz"/>
+
+                <TextView
+                    android:id="@+id/jbzihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="字号"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/shu"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/jbzihao"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="26"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/jbzihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="字体"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/shu"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="默认"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" 
+                    android:id="@+id/btn_color_picker"/>
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="字色"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+                <ImageView
+                    android:id="@+id/shu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/comment_guide_bg"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" 
+                    android:id="@+id/zjhao"/>
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="字距"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/zjh"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="2"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" 
+                    android:id="@+id/hj"/>
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="行距"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/hangjv"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="12"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" 
+                    android:id="@+id/zixing"
+                    android:onClick="ZiXing"/>
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="字型"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+                
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+            
+            
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

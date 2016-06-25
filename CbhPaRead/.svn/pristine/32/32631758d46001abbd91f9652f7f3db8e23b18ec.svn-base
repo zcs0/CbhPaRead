@@ -1,0 +1,212 @@
+package com.anjoyo.wangluo;
+
+import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
+
+import com.anjoyo.aimo.R;
+import com.anjoyo.down.FileDown;
+import com.anjoyo.finalltxt.Finaltxt;
+import com.anjoyo.saxtofile.SaxXML;
+
+
+import android.R.integer;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class ShouyeActivity extends Activity{
+	GridView gridView;
+	public static ArrayList<HashMap<String, String>> arrayList = new ArrayList<HashMap<String, String>>();
+	ProgressDialog pd;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.wlshouye);
+		gridView = (GridView) findViewById(R.id.lv1);
+		
+	//	pd=ProgressDialog.show(ShouyeActivity.this, "正在加载书籍,请稍等...", null,true);
+		
+	
+		pd=new ProgressDialog(this);
+		pd.show();
+		pd.setContentView(R.layout.myprogressdialog);
+		new Thread(run).start();
+		
+//		FileDown f = new FileDown();
+//		String result = f
+//				.DownLoad(Finaltxt.TXTPATH);
+//		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+//		try {
+//			XMLReader reader = saxParserFactory.newSAXParser().getXMLReader();
+//			SaxXML sXml = new SaxXML();
+//			reader.setContentHandler(sXml);
+//			reader.parse(new InputSource(new StringReader(result)));
+//			arrayList = sXml.getArrayList();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//			e.printStackTrace();
+//		}
+
+//		SimpleAdapter sim = new SimpleAdapter(JiexiActivity.this, arrayList,
+//				android.R.layout.simple_list_item_2, new String[] { "txtName",
+//						"txtAuthor" }, new int[] { android.R.id.text1,
+//						android.R.id.text2 });
+	
+
+	//	listView.setAdapter(ma);
+	
+
+	}
+	Handler handler=new  Handler(){
+		public void handleMessage(Message msg){
+			
+			MyAdapter  ma=new MyAdapter(ShouyeActivity.this,arrayList);
+			gridView.setAdapter(ma);
+			
+			pd.dismiss();
+		}
+	};
+	Runnable run=new Runnable() {
+		
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			FileDown f = new FileDown();
+			String result = f
+					.DownLoad(Finaltxt.TXTPATH);
+			SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+			try {
+				Thread.sleep(1000);
+				XMLReader reader = saxParserFactory.newSAXParser().getXMLReader();
+				SaxXML sXml = new SaxXML();
+				reader.setContentHandler(sXml);
+				reader.parse(new InputSource(new StringReader(result)));
+				arrayList = sXml.getArrayList();
+				Message msg=handler.obtainMessage();
+				msg.sendToTarget();
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		
+		}
+	};
+			
+			 
+	class MyAdapter extends BaseAdapter{
+         Context context;
+         ArrayList<HashMap<String, String>> arrList;
+    //     HashMap<String, SoftReference<Drawable>> bitMap; 
+		public MyAdapter(Context con,
+				ArrayList<HashMap<String, String>> arrayList) {
+			// TODO Auto-generated constructor stub]
+			this.context=con;
+			this.arrList=arrayList;
+	//		bitMap = new HashMap<String, SoftReference<Drawable>>();
+		}
+
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return arrList.size();
+		}
+
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return arrList.get(position);
+		}
+
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return position;
+		}
+
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			MyHolder mh=null;
+			
+			if (convertView==null) {
+				mh=new MyHolder();
+				convertView=LayoutInflater.from(context).inflate(R.layout.linebook, null);
+				convertView.setTag(mh);
+				mh.image=(ImageView)convertView.findViewById(R.id.image);
+				mh.tView=(TextView)convertView.findViewById(R.id.author);
+			}else {
+				mh=(MyHolder)convertView.getTag();
+			}
+	
+			mh.tView.setText((CharSequence) arrList.get(position).get(Finaltxt.TXTAUTHOR));
+			
+			//一次性加载
+			FileDown file=new FileDown();
+			String path=Finaltxt.TXTPA+SaxXML.xmllist.get(position).get(Finaltxt.TXTIMAGE);
+			Bitmap bit=file.GetImgToIntent(path);
+			mh.image.setImageBitmap(bit);
+		
+			//异步加载
+//			String path=Finaltxt.TXTPA+JiexiActivity.arrayList.get(position).get(Finaltxt.TXTIMAGE);
+//			if (bitMap.containsKey(path)) {
+//				SoftReference<Drawable> sf=bitMap.get(path);
+//				mh.image.setImageDrawable(sf.get());
+//			}else {
+//				mh.task=new DownloadTask(mh.image);
+//				mh.task.execute(path);
+//			}
+			return convertView;
+		}
+		private final class MyHolder{
+			ImageView image;
+			TextView tView;
+	//		DownloadTask task;
+		}
+//		class DownloadTask extends AsyncTask<String, Integer, Drawable> {
+//			Drawable b;
+//			ImageView iView;
+//			String payString;
+//
+//			DownloadTask(ImageView v) {
+//				this.iView = v;
+//			}
+//
+//			protected Drawable doInBackground(String... params) {
+//				// TODO Auto-generated method stub
+//				FileDown f = new FileDown();
+//				b = f.GetImgToIntent(params[0]);
+//				payString = params[0];
+//				return b;
+//			}
+//
+//			protected void onPreExecute() {
+//				super.onPreExecute();
+//			}
+//
+//			protected void onPostExecute(Drawable result) {
+//				if (result != null) {
+//					iView.setImageDrawable(b);
+//					bitMap.put(payString, new SoftReference<Drawable>(b));
+//				} else {
+//					System.out.println("a");
+//				}
+//			}
+//			
+//	}
+	}	
+
+}

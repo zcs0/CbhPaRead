@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/d3"
+    android:orientation="vertical"
+    android:paddingBottom="4dip"
+    android:paddingLeft="20dip"
+    android:paddingRight="28dip"
+    android:paddingTop="14.5dip" >
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@drawable/bendiwenjianmenupopbtn"
+        android:drawableLeft="@drawable/lib_search"
+        android:drawablePadding="15dip"
+        android:gravity="center_vertical"
+        android:onClick="sousuo"
+        android:text="搜索   sdcard" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#000000" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@drawable/bendiwenjianmenupopbtn"
+        android:drawableLeft="@drawable/lib_file_transfer"
+        android:drawablePadding="15dip"
+        android:gravity="center_vertical"
+        android:text="wifi传输" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#000000" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@drawable/bendiwenjianmenupopbtn"
+        android:drawableLeft="@drawable/lib_sort"
+        android:drawablePadding="15dip"
+        android:gravity="center_vertical"
+        android:text="书记排序" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="#000000" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="@drawable/bendiwenjianmenupopbtn"
+        android:drawableLeft="@drawable/lib_sort"
+        android:drawablePadding="15dip"
+        android:gravity="center_vertical"
+        android:onClick="addAurrentDoc"
+        android:text="加入本页所有文档" />
+
+</LinearLayout>

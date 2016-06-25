@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/brown_shelf_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/brown_default_title_landscape" />
+
+            <Button
+                android:id="@+id/image1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_head"
+                android:onClick="OnLogin" />
+
+            <CheckBox
+                android:button="@null"
+                android:id="@+id/lookbook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:drawableRight="@drawable/titleicon"
+                android:text="91熊猫看书"
+                android:textColor="#B22222"
+                android:textSize="17sp" 
+                android:onClick="titleMiddle"
+                />
+
+            <Button
+                android:id="@+id/shucheng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/title"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/title_right"
+                android:text="书城"
+                android:textColor="#ffffff" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/et1"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+               
+                android:layout_weight="1"
+                android:background="@drawable/brown_affiche_background"
+                android:hint="搜索本地书籍"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textSize="14sp" />
+
+            <ImageButton
+                android:id="@+id/ib1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/middle_left" />
+
+            <ImageButton
+                android:id="@+id/ib2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/middle_middle" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/middle_right" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.anjoyo.aimo.MyGridView
+        android:id="@+id/gv1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:columnWidth="60.0dip"
+        android:gravity="center"
+        android:horizontalSpacing="10dip"
+        android:numColumns="3"
+        android:verticalSpacing="10dip" 
+        android:listSelector="@drawable/brown_shelf_background">
+    </com.anjoyo.aimo.MyGridView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/brown_default_bottom" />
+
+        <Button
+
+            android:onClick="menuPop"
+
+            android:id="@+id/pandar"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/bottom_left" 
+            />
+
+        <Button
+            android:id="@+id/shangci"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/image1"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/title_right"
+            android:text="上次"
+            android:textColor="#ffffff"
+            android:onClick="ShangCi" />
+    </RelativeLayout>
+
+</LinearLayout>

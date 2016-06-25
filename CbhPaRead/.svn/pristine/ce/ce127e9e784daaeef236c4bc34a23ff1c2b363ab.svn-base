@@ -1,0 +1,34 @@
+package com.anjoyo.aimo;
+
+
+
+
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.CheckBox;
+
+
+
+
+
+
+public class QiTeActivity extends Activity{
+	CheckBox checkboxone,checkboxtwo,checkboxthree;
+	
+	
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.qite);
+		
+	}
+	
+
+	
+		
+		
+	}
+
+

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.anjoyo.aimo"
+    android:versionCode="2"
+    android:versionName="2.0" >
+
+    <uses-sdk android:minSdkVersion="16" />
+    <!-- wifi传输权限 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 屏幕长亮 -->
+    .<uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS" /> -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.anjoyo.aimo" />
+
+    <application
+        android:name="anjoyo.App"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.NoTitleBar" >
+        <uses-library android:name="android.test.runner" />
+
+<!--             android:name="anjoyo.zcx.com.DaoHangActivity" -->
+        <activity
+            android:name=".HomeCbhPaReadActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" 
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="anjoyo.StaringActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name="anjoyo.zcx.com.One" />
+        <activity
+            android:name="anjoyo.ReadRoomActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+       <!--  <activity android:name=".HomeCbhPaReadActivity" android:windowSoftInputMode="adjustUnspecified|stateHidden" /> -->
+        <activity android:name="anjoyo.zcx.com.Two" />
+        <activity android:name=".WelcomeActivity" />
+        <activity android:name=".ExternalStorageDirectoryActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ReadBookActivity" />
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".BasicsActivity" />
+        <activity android:name=".StyleActivity" />
+        <activity android:name=".AoreActivity" />
+        <activity android:name=".ShangCiActivity" />
+        <activity android:name=".YingyongActivity" />
+        <activity android:name=".ZiXingActivity" />
+        <activity android:name=".ColorPickerDialog" />
+        <activity android:name=".WifiActivity" />
+        <activity android:name=".ReadBook" />
+        <activity android:name=".ReadBookActivity2" />
+        <activity android:name="com.anjoyo.net.ShuChengActivity" />
+        <activity android:name="com.anjoyo.net.ManhuaActivity" />
+        <activity android:name="com.anjoyo.net.ShouyeActivity" />
+        <activity android:name="com.anjoyo.net.TushuActivity" />
+        <activity android:name="com.anjoyo.net.XiaoshuoActivity" />
+        <activity android:name="com.anjoyo.net.ZazhiActivity" />
+        <activity android:name="com.anjoyo.net.InterRead" />
+
+        <service android:name="com.anjoyo.down.DownLoadTxt" />
+    </application>
+
+</manifest>

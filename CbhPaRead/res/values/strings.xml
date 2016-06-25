@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, CbhPaReadActivity!</string>
+    <string name="app_name">熊猫看书</string>
+        
+    <!-- 主页面点击熊猫 弹出popwindow 中的radiobutton-->
+    <string name="lishi">历史/书签</string>
+    <string name="yaoyao">摇摇 分享 </string>
+    <string name="chajian">插件 中心 </string>
+    <string name="yingyong">应用 推荐 </string>
+    <string name="guanyu">　关 于　</string>
+    <string name="bendi">本地 文件 </string>
+    <string name="wifi">WiFi 传输 </string>
+    <string name="shoucang">　收 藏　</string>
+    <string name="shezhi">　设 置　</string>
+    <string name="tuichu">　退 出　</string>
+    <string name="about1">网龙出品NetDragon WebSoft.Inc</string>
+      <string name="about2">客服热线：0591-87085788</string>
+      <string name="about3">官方网站：http：//ks.sj.91.com</string>
+      <string name="about4">本版本在线语音朗读核心技术由科大讯飞提供支持</string>
+      <string name="about5">本地语音朗读核心技术由盛大听听提供支持</string>  
+       <!-- bookpop.xml -->
+    <string name="bookpop_size">字体</string>
+    <string name="bookpop_light">亮度</string>
+    <string name="bookpop_card">书签</string>
+    <string name="bookpop_send">跳转</string>
+    <!-- 设置 -->
+    <string name="btn_color_picker">字体样式abc</string>
+     <string name="btn_color_picker2">字体样式abc</string>
+      <string name="font">字体大小</string>
+    <string name="persent">进度跳转</string>
+    
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+     
+</resources>

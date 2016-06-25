@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/d3"
+    android:paddingRight="28dip"
+    android:paddingTop="14.5dip"
+    android:paddingLeft="20dip"
+    android:paddingBottom="4dip"
+    android:orientation="vertical" >
+
+   <Button 
+       android:onClick="sousuo"
+       android:drawablePadding="15dip"
+       android:gravity="center_vertical"
+       android:layout_weight="1"
+       android:text="搜索   sdcard"
+       android:background="@drawable/bendiwenjianmenupopbtn"
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:drawableLeft="@drawable/lib_search"/>
+   <ImageView android:layout_width="fill_parent"
+       android:layout_height="1dip"
+       android:background="#000000"/>
+   <Button 
+       android:drawablePadding="15dip"
+        android:gravity="center_vertical"
+       android:layout_weight="1"
+       android:text="wifi传输"
+      android:background="@drawable/bendiwenjianmenupopbtn"
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:drawableLeft="@drawable/lib_file_transfer"/>
+    <ImageView
+         android:layout_width="fill_parent"
+       android:layout_height="1dip"
+       android:background="#000000"/>
+   <Button 
+       android:drawablePadding="15dip"
+        android:gravity="center_vertical"
+       android:layout_weight="1"
+       android:text="书记排序"
+       android:background="@drawable/bendiwenjianmenupopbtn"
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:drawableLeft="@drawable/lib_sort"/>
+   
+</LinearLayout>

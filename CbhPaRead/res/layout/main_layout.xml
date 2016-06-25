@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/brown_shelf_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:background="@drawable/brown_default_title_landscape"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/image1"
+                android:enabled="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_head"
+                android:onClick="OnLogin" />
+
+            <CheckBox
+                android:id="@+id/lookbook"
+                android:enabled="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:button="@null"
+                android:drawableRight="@drawable/titleicon"
+                android:onClick="titleMiddle"
+                android:text="熊猫看书"
+                android:textColor="#B22222"
+                android:textSize="17sp" />
+
+            <Button
+                android:layout_alignParentRight="true"
+                android:id="@+id/shucheng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/title_right"
+                android:text="书城"
+                android:textColor="#ffffff" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/brown_affiche_background"
+                android:hint="搜索本地书籍"
+                android:paddingLeft="10dp"
+                android:singleLine="true"
+                android:textSize="14sp" />
+
+            <ImageButton
+                android:id="@+id/btn_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/middle_left" />
+
+            <ImageButton
+                android:id="@+id/btn_select_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/middle_middle" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/middle_right" />
+        </LinearLayout>
+    </LinearLayout>
+    <com.anjoyo.aimo.MyGridView
+        android:id="@+id/gv1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:columnWidth="60.0dip"
+        android:gravity="center"
+        android:horizontalSpacing="10dip"
+        android:listSelector="@drawable/brown_shelf_background"
+        android:numColumns="3"
+        android:verticalSpacing="10dip" >
+    </com.anjoyo.aimo.MyGridView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/brown_default_bottom" />
+
+        <Button
+            android:id="@+id/pandar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/bottom_left"
+            android:onClick="showMenuPop" />
+
+        <Button
+            android:id="@+id/shangci"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/image1"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/title_right"
+            android:onClick="lastFileViewClick"
+            android:text="上次"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+</LinearLayout>

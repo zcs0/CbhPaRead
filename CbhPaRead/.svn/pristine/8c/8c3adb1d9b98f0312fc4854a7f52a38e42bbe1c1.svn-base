@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dp"
+            android:visibility="gone" >
+        </FrameLayout>
+        <RelativeLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/brown_default_title" >
+            <Button
+                android:id="@+id/wldenglu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_head"
+                android:onClick="OnLogin" />
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="首页"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true" />
+            <Button
+                android:id="@+id/wlhui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/wlhuibtn"
+                android:layout_alignParentRight="true"
+                android:onClick="BackClick" />
+            <Button
+                android:id="@+id/wlsou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/wlsoubtn"
+                android:layout_toLeftOf="@id/wlhui"
+                 />
+            
+        </RelativeLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPages"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" />
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:visibility="gone" />
+
+        <RadioGroup
+            android:id="@+id/main_radio"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/brown_default_title"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio_shou"
+                style="@style/wangluotab_button"
+                android:tag="radio_0"
+                android:drawableTop="@drawable/shop_home_button_selector"
+                android:text="首页" />
+
+            <RadioButton
+                android:id="@+id/radio_xiao"
+                style="@style/wangluotab_button"
+                android:tag="radio_1"
+                android:drawableTop="@drawable/shop_novel_button_selector"
+                android:text="小说" />
+
+            <RadioButton
+                android:id="@+id/radio_tu"
+                style="@style/wangluotab_button"
+                android:tag="radio_2"
+                android:drawableTop="@drawable/shop_books_button_selector"
+                android:text="图书" />
+
+            <RadioButton
+                android:id="@+id/radio_za"
+                style="@style/wangluotab_button"
+                android:tag="radio_3"
+                android:drawableTop="@drawable/shop_magazine_button_selector"
+                android:text="杂志" />
+            <RadioButton
+                android:id="@+id/radio_man"
+                style="@style/wangluotab_button"
+                android:tag="radio_4"
+                android:drawableTop="@drawable/shop_cartoon_button_selector"
+                android:text="漫画" />
+        </RadioGroup>
+    </LinearLayout>
+
+</TabHost>

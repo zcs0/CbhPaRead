@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f7f3ef"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="高级排版"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+               
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="字号"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/shu"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="26"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="翻页设置"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/shu"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="左右翻页"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/shujia"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="书架排序"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/shu"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/shujia"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:text="按书籍名称（A-Z）"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/shujia"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="转屏设置"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/shu"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="竖屏"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="眼保健操"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/shu"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="阅读30分钟后"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="省电设置"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/shu"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:text="打开"
+                    android:textColor="#000000" />
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="清除缓存"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+               
+
+                <ImageView
+                    android:id="@+id/jian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/zihao"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/meta_item_more" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+              <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="书籍下载动画"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+               
+
+               <CheckBox
+                    android:id="@+id/CheckBoxone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   
+                    android:layout_alignParentRight="true"
+                    />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+              <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="书籍下载音效"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+               
+
+               <CheckBox
+                    android:id="@+id/CheckBoxtwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   
+                    android:layout_alignParentRight="true"
+                    />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+              <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/note_share_covered" />
+
+                <TextView
+                    android:id="@+id/zihao"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="left"
+                    android:text="全屏阅读"
+                    android:textColor="#000000"
+                    android:textSize="22sp" />
+
+               
+
+               <CheckBox
+                    android:id="@+id/CheckBoxthree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   
+                    android:layout_alignParentRight="true"
+                    />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+                 <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" 
+                android:background="@drawable/note_share_covered" >
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="70sp"
+                    android:id="@+id/huanyuan"
+                    android:text="还原所有设置"
+                    />
+
+                
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bookbox_top" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

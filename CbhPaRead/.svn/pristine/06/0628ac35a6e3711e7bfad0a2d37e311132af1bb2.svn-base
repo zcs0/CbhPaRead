@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="46dip"
+        android:background="@drawable/brown_default_bottom" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:background="@drawable/wenjianback"
+            android:text="返回"
+            android:onClick="fanhui" />
+
+        <Button
+            android:onClick="BenDiWenJianMenuBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dip"
+            android:background="@drawable/wenjiancaidan"
+            android:text="菜单" />
+    </RelativeLayout>
+
+        <HorizontalScrollView 
+            android:scrollbars="none"
+            android:background="#DEC7B5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="dddddd"
+        android:textColor="#422008"
+        android:textSize="20sp" />
+
+    </HorizontalScrollView>
+    
+    <ListView 
+        android:cacheColorHint="#00000000"
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#F7F3EF"
+        android:listSelector="@drawable/search_button_panel_background" />
+
+</LinearLayout>

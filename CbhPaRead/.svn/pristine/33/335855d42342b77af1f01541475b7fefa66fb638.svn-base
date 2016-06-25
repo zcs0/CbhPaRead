@@ -1,0 +1,262 @@
+package com.anjoyo.aimo;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.anjoyo.wangluo.ShuChengActivity;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.wifi.WifiManager;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.RadioButton;
+import anjoyo.zcx.adapter.MyAdapter;
+
+public class CbhPaReadActivity extends Activity {
+	Button shucheng, shangci;
+	private PopupWindow menuPop, titlePopupWindow;
+	View menuPopView, titlePop;
+	GridView toolbarGrView;
+	static CbhPaReadActivity cbhPaReadActivity;
+
+	WifiManager wifiManager;
+	ArrayList<HashMap<String, Object>> data;
+	HashMap<String, Object> map;
+
+	// RadioButton lookButton;
+
+	// RadioButton lookButton;
+
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
+		shucheng = (Button) findViewById(R.id.shucheng);
+		shangci = (Button) findViewById(R.id.shangci);
+		cbhPaReadActivity=this;
+		// lookButton=(RadioButton)findViewById(R.id.lookbook);
+		// 点击书城，进入网络书城
+		shucheng.setOnClickListener(new Button.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent in = new Intent(CbhPaReadActivity.this,
+						ShuChengActivity.class);
+				startActivity(in);
+			}
+		});
+
+		toolbarGrView = (GridView) findViewById(R.id.gv1);
+
+		/**
+		 * 点击gridview，进行跳转
+		 * 
+		 */
+		toolbarGrView
+				.setOnItemClickListener(new GridView.OnItemClickListener() {
+					// boolean bSelect=true;
+					@Override
+					public void onItemClick(AdapterView<?> arg0, View arg1,
+							int arg2, long arg3) {
+						// TODO Auto-generated method stub
+						Intent intent = new Intent();
+					
+						intent.setClass(CbhPaReadActivity.this, ReadBook.class);
+						intent.putExtra("txtName1", data.get(arg2).get("bookName").toString());
+System.out.println("txtName1="+data.get(arg2).get("bookName").toString());
+						startActivity(intent);
+					}
+				});
+
+		data = new ArrayList<HashMap<String, Object>>();
+		
+
+		
+
+	}
+
+	public void import_book(Object o,String book_name) {
+		map = new HashMap<String, Object>();
+//		map.put("itemImage", R.drawable.orange_shelf_cover_shadow_online);
+		map.put("itemImage", o);
+		map.put("bookName", book_name);
+		data.add(map);
+		MyAdapter my = new MyAdapter(CbhPaReadActivity.this, data);
+		toolbarGrView.setAdapter(my);
+	}
+	public static Handler handler=new Handler(){
+		public void handleMessage(android.os.Message msg) {
+			switch(msg.what){
+			case 0:
+				String a=MyWenJianLiulanActivity.import_bookName.toString();
+				cbhPaReadActivity.import_book(R.drawable.orange_shelf_cover_shadow_online, a);
+				
+			}
+		};
+	};
+
+	// 登陆界面
+	public void OnLogin(View v) {
+		Intent in = new Intent(CbhPaReadActivity.this, LoginActivity.class);
+		startActivity(in);
+	}
+
+	// 点击主页面的熊猫 弹出popwindow
+
+	public void menuPop(View v) {
+
+		menuPopView = getLayoutInflater().inflate(R.layout.mainactivitymenupop,
+				null);
+
+		menuPop = new PopupWindow(menuPopView, LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT);
+		// popwindow消失
+		menuPop.setBackgroundDrawable(new BitmapDrawable());
+		menuPop.showAtLocation(v, Gravity.LEFT, 0, Gravity.BOTTOM);
+
+		menuPop.setFocusable(true);
+		menuPop.setOutsideTouchable(true);
+		menuPop.update();
+
+	}
+
+	// 菜单头部弹出popwindow
+	public void titleMiddle(View v) {
+		titlePop = getLayoutInflater().inflate(R.layout.titlepop, null);
+		titlePopupWindow = new PopupWindow(titlePop, LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT);
+		titlePopupWindow.setBackgroundDrawable(new BitmapDrawable());
+		titlePopupWindow.showAsDropDown(v, 0, 0);
+		titlePopupWindow.setFocusable(true);
+		titlePopupWindow.setOutsideTouchable(true);
+		titlePopupWindow.update();
+		// lookButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.syn_title_top));
+	}
+
+
+	// 菜单中部popwindow中按钮监听
+	public void Booklogin(View v) {
+		titlePopupWindow.dismiss();
+		fengzhuang();
+	}
+	//
+	public void YYong(View v){
+		menuPop.dismiss();
+		Intent inweb = new Intent(CbhPaReadActivity.this, YingyongActivity.class);
+        startActivity(inweb);
+	}
+	// popwindow的关于按钮跳转
+	public void OnAbout(View v) {
+		menuPop.dismiss();
+		Intent in = new Intent(CbhPaReadActivity.this, AboutActivity.class);
+        startActivity(in);
+	}
+
+	public void WifiCs(View v){
+		menuPop.dismiss();
+		Intent inw = new Intent(CbhPaReadActivity.this, WifiActivity.class);
+        startActivity(inw);
+	}
+  //popwindow的摇摇分享按钮跳转
+  public void YaoOnClick(View v){
+	  fengzhuang();
+  }
+  //wifi传输按钮  获取wifi服务，并开启wifi
+  public void WiFiOn(View v){
+	  if (wifiManager == null)
+     	 
+   	    wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+   	 
+   	if (!wifiManager.isWifiEnabled()) {
+   	 
+   	    wifiManager.setWifiEnabled(true);
+   	 
+   	}
+  }
+  //上次按钮的跳转
+  public void ShangCi(View v){
+	  Intent in=new Intent(CbhPaReadActivity.this,ReadBook.class);
+	  startActivity(in);
+  }
+  //跳转封装
+ public void fengzhuang(){
+	 Intent in=new Intent(CbhPaReadActivity.this,LoginActivity.class);
+
+     startActivity(in);
+	}
+
+	// 本地wenjian
+	public void BenDiWenJian(View v) {
+		menuPop.dismiss();
+		Intent in = new Intent(CbhPaReadActivity.this,
+				MyWenJianLiulanActivity.class);
+		startActivity(in);
+	}
+
+	// 点击熊猫 popwndow消失
+	public void MiongMaoXiaoShi(View v) {
+		menuPop.dismiss();
+	}
+
+	// popwindow的设置按钮跳转
+	public void Shezhi(View v) {
+		Intent in = new Intent(CbhPaReadActivity.this, ShezhiActivity.class);
+		startActivity(in);
+
+	}
+
+
+	// 拦截back键
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			Builder build = new AlertDialog.Builder(this);
+			build.setTitle("亲！你真的要退出程序吗？");
+			build.setIcon(R.drawable.bq18);
+			build.setPositiveButton("确定", new OnClickListener() {
+
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					WelcomeActivity.wel.finish();
+					System.exit(0);
+				}
+			});
+			build.setNegativeButton("取消", new OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+
+				}
+			});
+			build.show();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+
+	}
+
+	// 熊猫popwindow中的退出按钮
+	public void exitwindow(View v) {
+		WelcomeActivity.wel.finish();
+		System.exit(0);
+	}
+
+}

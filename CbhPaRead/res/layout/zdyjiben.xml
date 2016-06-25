@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/note_share_covered"
+     >
+   <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="字号"
+        android:layout_marginLeft="18dp"
+        android:id="@+id/zihao"
+        android:textSize="22sp"
+        android:textColor="#000"
+        android:layout_marginTop="10dp"
+       />
+ <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hao"
+        android:text="26"
+        android:layout_toRightOf="@id/zihao"
+        android:textSize="16sp"
+        android:layout_marginLeft="90dp"
+        android:layout_alignBottom="@id/zihao"
+        android:textColor="#000"
+       />
+ <ImageView 
+     android:id="@+id/jian"
+     android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_alignBottom="@id/zihao"
+       android:layout_alignParentRight="true"
+       
+     />
+    
+
+</RelativeLayout>
